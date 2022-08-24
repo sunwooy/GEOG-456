@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+.Flood{
+    background-color: blue;
+}
+
+.Tornado{
+    background-color: gray;
+}
+
+.Fire{
+    background-color: red;
+}
+</style>
+</head>
+<script src ="FEMA.js"></script>
+<body>
+
+<h2>FEMA Historical Declaration</h2>
+
+<table id = "MyTable">
+  <tr>
+    <th>State</th>
+    <th>County</th>
+    <th>Date</th>
+    <th>Type of Incident</th>
+  </tr>
+  
+</table>
+
+</body>
+<script>
+    var x = document.getElementById('MyTable')
+
+    for (var i=0; i <FEMA.length; i++)
+    {
+        var myNewRow = document.createElement('tr')
+        var myNewCell1 = document.createElement('td')
+        var myNewCell2 = document.createElement('td')
+        var myNewCell3 = document.createElement('td')
+        var myNewCell4 = document.createElement('td')
+        
+        myNewCell1.innerText = FEMA[i].State
+
+        myNewCell2.innerText = FEMA[i].County
+
+        myNewCell3.innerText = FEMA[i].Declaration_Date
+
+
+        myNewCell4.innerText = FEMA[i].Incident_Type
+        myNewCell4.className = FEMA[i].Incident_Type
+
+        myNewRow.append(myNewCell1)
+        myNewRow.append(myNewCell2)
+        myNewRow.append(myNewCell3)
+        myNewRow.append(myNewCell4)
+        x.append(myNewRow)
+    }
+
+
+</script>
+</html>
+
