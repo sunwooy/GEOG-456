@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://cdnjs.com/libraries/plotly.js/2.14.0
+    https://plotly.com/javascript/ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar</title>
+</head>
+<style>
+    #myDiv{
+        background-color: dodgerblue;
+        width: 800px;
+        height: 800px;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://sunwooy.github.io/GEOG-456/Loop_HTML_Table/FEMA.js"></script>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        var y = []
+        var x = []
+        var count = 0
+        for(let i = 0; i < FEMA.length; i++)
+        {
+            if (FEMA[i].Incident_Type == "Flood" && FEMA[i].State == "LA")
+            {
+                //y = FEMA.map(e => e.Incident)
+                //x = FEMA.map(e => e.Declaration_Date)
+                y.push(FEMA[i].Incident)
+                x.push(FEMA[i].Declaration_Date)
+            }
+        }
+        
+        
+        
+
+        var trace1 = {
+            x: x,
+            y: y,
+            mode:'markers',
+            type: 'bar',
+            marker: 
+            {
+                color:y, colorscale: 'Portland'
+            }
+        }
+        var layout = 
+        {
+            title: 
+            {
+                text: "Max Temperature"
+            },
+            xaxis:
+            {
+                title: "Date"
+            },
+            yaxis:
+            {
+                title: "Temperature"
+            }
+
+        }
+        var data = [trace1]
+        Plotly.newPlot('myDiv', data, layout);
+
+    </script>
+</body>
+</html>
