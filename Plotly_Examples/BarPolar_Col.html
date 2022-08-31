@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://cdnjs.com/libraries/plotly.js/2.14.0
+    https://plotly.com/javascript/ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scatter</title>
+</head>
+<style>
+    #myDiv{
+        background-color: dodgerblue;
+        width: 800px;
+        height: 800px;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://sunwooy.github.io/GEOG-456/Plotly_Examples/Colorodo.js"></script>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        // var y = []
+        // var x = []
+        // var count = 0
+        // for(let i = 0; i < FEMA.length; i++)
+        // {
+        //     if (FEMA[i].Incident_Type == "Flood" && FEMA[i].State == "LA")
+        //     {
+        //         //y = FEMA.map(e => e.Incident)
+        //         //x = FEMA.map(e => e.Declaration_Date)
+        //         y.push(FEMA[i].Incident)
+        //         x.push(FEMA[i].Declaration_Date)
+        //     }
+        // }
+
+        //var y = chTmax.map(e => Number(e.TMAX))
+        
+        
+        
+        var y = Col.map(e => e.JUL)
+        var x = Col.map(e => e.Year)
+
+        // var x = []
+        // var y = []
+        
+        // for (let i = 0; i < Col.length; i++)
+        // {
+        //     x.push("Jan " + Col[i].Year )
+        //     x.push("Feb " + Col[i].Year )
+        //     x.push("Mar " + Col[i].Year )
+        //     x.push("Apr " + Col[i].Year )
+        //     x.push("May " + Col[i].Year )
+        //     x.push("Jun " + Col[i].Year )
+        //     x.push("Jul " + Col[i].Year )
+        //     x.push("Aug " + Col[i].Year )
+        //     x.push("Sep " + Col[i].Year )
+        //     x.push("Oct " + Col[i].Year )
+        //     x.push("Nov " + Col[i].Year )
+        //     x.push("Dec " + Col[i].Year )
+            
+            
+        //     y.push(Col[i].JAN)
+        //     y.push(Col[i].FEB)
+        //     y.push(Col[i].MAR)
+        //     y.push(Col[i].APR)
+        //     y.push(Col[i].MAY)
+        //     y.push(Col[i].JUN)
+        //     y.push(Col[i].JUL)
+        //     y.push(Col[i].AUG)
+        //     y.push(Col[i].SEP)
+        //     y.push(Col[i].OCT)
+        //     y.push(Col[i].NOV)
+        //     y.push(Col[i].DEC)
+
+        // }
+
+    
+
+        
+        // Number(Col[i].JAN) + Number(Col[i].FEB) + Number(Col[i].MAR) + Number(Col[i].APR)
+        //     +  Number(Col[i].MAY) + Number(Col[i].JUN) + Number(Col[i].JUL) + Number(Col[i].AUG)
+        //     +  Number(Col[i].SEP) + Number(Col[i].OCT) +  Number(Col[i].NOV)+ Number(Col[i].DEC)
+
+        var trace1 = {
+            //x: x,
+            //y: y,
+            r: y,
+            mode:'markers',
+            type: 'barpolar',
+            marker: 
+            {
+                color:y, colorscale: [
+    ['0.0', 'rgb(165,0,38)'],
+    ['0.111111111111', 'rgb(215,48,39)'],
+    ['0.222222222222', 'rgb(244,109,67)'],
+    ['0.333333333333', 'rgb(253,174,97)'],
+    ['0.444444444444', 'rgb(254,224,144)'],
+    ['0.555555555556', 'rgb(224,243,248)'],
+    ['0.666666666667', 'rgb(171,217,233)'],
+    ['0.777777777778', 'rgb(116,173,209)'],
+    ['0.888888888889', 'rgb(69,117,180)'],
+    ['1.0', 'rgb(49,54,149)']
+  ]
+            }
+        }
+        var layout = 
+        {
+            title: 
+            {
+                text: "Lake Mead Historical Reservoir Level: July 1936-2021"
+            },
+          
+
+        }
+        var data = [trace1]
+        Plotly.newPlot('myDiv', data, layout);
+
+    </script>
+</body>
+</html>

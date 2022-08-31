@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://cdnjs.com/libraries/plotly.js/2.14.0
+    https://plotly.com/javascript/ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boxplot</title>
+</head>
+<style>
+    #myDiv{
+        background-color: dodgerblue;
+        width: 800px;
+        height: 800px;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://sunwooy.github.io/GEOG-456/Plotly_Examples/Colorodo.js"></script>
+<body>
+    <div id="myDiv"></div>
+    <script>
+        
+        
+        
+        //var y = Col.map(e => e.JAN, e.JUL )
+        //var x = Col.map(e => "Year " + e.Year)
+//         function getColor(data) {
+//   // enter your conditional coloring code here
+        function getColor(y,z)
+        {
+            for (let j=0; j< y.length; j++)
+            {
+                if (z[j] >= 2010 )
+                {
+                    // return '#0000FF'
+                    q.push('#FF0000')
+                }
+                else
+                {
+                    q.push('#0000FF')
+                }
+            }
+            return ;
+        }
+
+        var y = []
+        var x = []
+        var z = []
+        var q = []
+        for (let i = 0; i < Col.length; i++)
+        {
+            x.push("Jan " + Col[i].Year )
+            x.push("Feb " + Col[i].Year )
+            x.push("Mar " + Col[i].Year )
+            x.push("Apr " + Col[i].Year )
+            x.push("May " + Col[i].Year )
+            x.push("Jun " + Col[i].Year )
+            x.push("Jul " + Col[i].Year )
+            x.push("Aug " + Col[i].Year )
+            x.push("Sep " + Col[i].Year )
+            x.push("Oct " + Col[i].Year )
+            x.push("Nov " + Col[i].Year )
+            x.push("Dec " + Col[i].Year )
+
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+            z.push(Number(Col[i].Year ))
+
+            y.push(Col[i].JAN)
+            y.push(Col[i].FEB)
+            y.push(Col[i].MAR)
+            y.push(Col[i].APR)
+            y.push(Col[i].MAY)
+            y.push(Col[i].JUN)
+            y.push(Col[i].JUL)
+            y.push(Col[i].AUG)
+            y.push(Col[i].SEP)
+            y.push(Col[i].OCT)
+            y.push(Col[i].NOV)
+            y.push(Col[i].DEC)
+
+        }
+        getColor(y,z)
+        var trace1 = {
+            y: y,
+            mode:'markers',
+            type: 'box',
+            boxpoints: 'all',
+            jitter: 0.3,
+            pointpos: -1.8,
+            text: x,
+            marker: 
+            {
+                // color: y.map(d => )
+                //     for (let j=0; j< y.length; j++)
+                //     {
+                //         if (z[j] >= 2010 )
+                //         {
+                //             y[j] == '#0000FF'
+                //         }
+                //     }
+                color: y.map(d => q)
+
+            }
+            
+  
+
+            }
+        
+        var layout = 
+        {
+            title: 
+            {
+                text: "Lake Mead Historical Reservoir Level: July 1936-2021"
+            },
+            xaxis:
+            {
+                title: "July 1936-2021"
+            },
+            yaxis:
+            {
+                title: "Elevation (ft)"
+            }
+            
+
+        }
+        var data = [trace1]
+        Plotly.newPlot('myDiv', data, layout);
+
+    </script>
+</body>
+</html>
