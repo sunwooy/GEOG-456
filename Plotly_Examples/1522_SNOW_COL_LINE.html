@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- https://cdnjs.com/libraries/plotly.js/2.14.0
+    https://plotly.com/javascript/ -->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line</title>
+</head>
+<style>
+    #myDiv{
+        background-color: dodgerblue;
+        width: 800px;
+        height: 800px;
+    }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.14.0/plotly.min.js" integrity="sha512-XDnqTWsAcVl16AYJoBHumISzIYThowGjR67jeL53NSp6tajsq2qf5UeAWvk1n6Hp3M2iMsV/ewhPScBiLCDs9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<body>
+    <div id="myDiv"></div>
+    <script>
+
+        
+        
+        //var y = Col.map(e => e.JUL)
+        // var x = Col.map(e => e.Year)
+        var Col = [
+    {
+        "Year": "2015",
+        "JAN": "1088.51",
+        "FEB": "1088.98",
+        "MAR": "1084.87",
+        "APR": "1079.03",
+        "MAY": "1076.57",
+        "JUN": "1075.08",
+        "JUL": "1078.15",
+        "AUG": "1078.31",
+        "SEP": "1078.1",
+        "OCT": "1078.99",
+        "NOV": "1078.23",
+        "DEC": "1080.91"
+    },
+    {
+        "Year": "2016",
+        "JAN": "1083.68",
+        "FEB": "1084.17",
+        "MAR": "1080.45",
+        "APR": "1076.13",
+        "MAY": "1073.8",
+        "JUN": "1071.64",
+        "JUL": "1072.75",
+        "AUG": "1075.17",
+        "SEP": "1075.23",
+        "OCT": "1076.34",
+        "NOV": "1076.55",
+        "DEC": "1080.82"
+    },
+    {
+        "Year": "2017",
+        "JAN": "1086.08",
+        "FEB": "1089.78",
+        "MAR": "1088.26",
+        "APR": "1084.89",
+        "MAY": "1081.56",
+        "JUN": "1079.52",
+        "JUL": "1079.03",
+        "AUG": "1081.44",
+        "SEP": "1082.05",
+        "OCT": "1082.3",
+        "NOV": "1080.95",
+        "DEC": "1082.52"
+    },
+    {
+        "Year": "2018",
+        "JAN": "1087.5",
+        "FEB": "1088.21",
+        "MAR": "1088.11",
+        "APR": "1084.49",
+        "MAY": "1080",
+        "JUN": "1076.81",
+        "JUL": "1077.43",
+        "AUG": "1078.88",
+        "SEP": "1078.29",
+        "OCT": "1078.52",
+        "NOV": "1078.32",
+        "DEC": "1081.46"
+    },
+    {
+        "Year": "2019",
+        "JAN": "1085.75",
+        "FEB": "1087.97",
+        "MAR": "1090.24",
+        "APR": "1088.95",
+        "MAY": "1086.48",
+        "JUN": "1084.71",
+        "JUL": "1082.82",
+        "AUG": "1083.45",
+        "SEP": "1083",
+        "OCT": "1082.61",
+        "NOV": "1083.85",
+        "DEC": "1090.49"
+    },
+    {
+        "Year": "2020",
+        "JAN": "1094.68",
+        "FEB": "1096.27",
+        "MAR": "1098.59",
+        "APR": "1096.39",
+        "MAY": "1091.32",
+        "JUN": "1087.07",
+        "JUL": "1084.63",
+        "AUG": "1084.04",
+        "SEP": "1083.21",
+        "OCT": "1081.88",
+        "NOV": "1081.07",
+        "DEC": "1083.72"
+    },
+    {
+        "Year": "2021",
+        "JAN": "1085.95",
+        "FEB": "1087.26",
+        "MAR": "1084.39",
+        "APR": "1079.3",
+        "MAY": "1073.5",
+        "JUN": "1068.77",
+        "JUL": "1067.65",
+        "AUG": "1067.96",
+        "SEP": "1067.68",
+        "OCT": "1066.77",
+        "NOV": "1064.97",
+        "DEC": "1066.39"
+    },
+    {
+        "Year": "2022",
+        "JAN": "1067.09",
+        "FEB": "1066.78",
+        "MAR": "1061.49",
+        "APR": "1054.69",
+        "MAY": "1047.69",
+        "JUN": "1043.02",
+        "JUL": "1040.92",
+        "AUG": "",
+        "SEP": "",
+        "OCT": "",
+        "NOV": "",
+        "DEC": ""
+    },
+    {
+        "Year": ""
+    }
+]
+
+var snow1522 = [
+    {
+        "Year": "2015",
+        "JAN": "7.8",
+        "FEB": "9.9",
+        "MAR": "13.5",
+        "APR": "13.2",
+        "MAY": "16.7",
+        "JUN": "14.9",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "1.2",
+        "DEC": "4.1"
+    },
+    {
+        "Year": "2016",
+        "JAN": "7",
+        "FEB": "9.6",
+        "MAR": "12.7",
+        "APR": "19.2",
+        "MAY": "20.7",
+        "JUN": "12.8",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "0",
+        "DEC": "1.4"
+    },
+    {
+        "Year": "2017",
+        "JAN": "6.4",
+        "FEB": "12.3",
+        "MAR": "16",
+        "APR": "16.4",
+        "MAY": "18.2",
+        "JUN": "12.6",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "0.2",
+        "DEC": "2.9"
+    },
+    {
+        "Year": "2018",
+        "JAN": "5.9",
+        "FEB": "8.2",
+        "MAR": "11.6",
+        "APR": "14.5",
+        "MAY": "15.6",
+        "JUN": "0.3",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "0.6",
+        "DEC": "5.5"
+    },
+    {
+        "Year": "2019",
+        "JAN": "7.5",
+        "FEB": "9.9",
+        "MAR": "12.6",
+        "APR": "19.1",
+        "MAY": "20.2",
+        "JUN": "19.7",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "3.5",
+        "DEC": "5.6"
+    },
+    {
+        "Year": "2020",
+        "JAN": "8.9",
+        "FEB": "12.1",
+        "MAR": "17.7",
+        "APR": "21.2",
+        "MAY": "24.1",
+        "JUN": "1.2",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "1.6",
+        "DEC": "3"
+    },
+    {
+        "Year": "2021",
+        "JAN": "5.2",
+        "FEB": "6.9",
+        "MAR": "12.2",
+        "APR": "18.1",
+        "MAY": "22.7",
+        "JUN": "16.8",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "0",
+        "OCT": "0",
+        "NOV": "0.1",
+        "DEC": "2.1"
+    },
+    {
+        "Year": "2022",
+        "JAN": "9.1",
+        "FEB": "13.2",
+        "MAR": "14.8",
+        "APR": "17.3",
+        "MAY": "21.1",
+        "JUN": "14.6",
+        "JUL": "0",
+        "AUG": "0",
+        "SEP": "",
+        "OCT": "",
+        "NOV": "",
+        "DEC": ""
+    },
+    {
+        "Year": ""
+    }
+]
+        var s = []
+        for (let t = 0; t < snow1522.length; t++)
+        {
+            
+            s.push((snow1522[t].JAN))
+            s.push((snow1522[t].FEB))
+            s.push((snow1522[t].MAR))
+            s.push(snow1522[t].APR)
+            s.push(snow1522[t].MAY)
+            s.push(snow1522[t].JUN)
+            s.push(snow1522[t].JUL)
+            s.push(snow1522[t].AUG)
+            s.push(snow1522[t].SEP)
+            s.push(snow1522[t].OCT)
+            s.push(snow1522[t].NOV)
+            s.push(snow1522[t].DEC)
+
+        }
+
+
+        var x = []
+        var y = []
+        
+        for (let i = 0; i < Col.length; i++)
+        {
+            x.push("JAN " + Col[i].Year )
+            x.push("FEB " + Col[i].Year )
+            x.push("MAR " + Col[i].Year )
+            x.push("APR " + Col[i].Year )
+            x.push("MAY " + Col[i].Year )
+            x.push("JUN " + Col[i].Year )
+            x.push("JULY " + Col[i].Year )
+            x.push("AUG " + Col[i].Year )
+            x.push("SEPT " + Col[i].Year )
+            x.push("OCT " + Col[i].Year )
+            x.push("NOV " + Col[i].Year )
+            x.push("DEC " + Col[i].Year )
+            
+            
+            y.push((Col[i].JAN))
+            y.push((Col[i].FEB))
+            y.push((Col[i].MAR))
+            y.push(Col[i].APR)
+            y.push(Col[i].MAY)
+            y.push(Col[i].JUN)
+            y.push(Col[i].JUL)
+            y.push(Col[i].AUG)
+            y.push(Col[i].SEP)
+            y.push(Col[i].OCT)
+            y.push(Col[i].NOV)
+            y.push(Col[i].DEC)
+
+        }
+        
+        
+        
+        
+        
+
+        var trace1 = {
+            x: x,
+            y: y,
+            mode: 'lines+markers',
+            type: 'scatter',
+            name: 'Water level Elevation (ft)'
+
+            }
+        
+        var trace2 = {
+            x: x,
+            y: s,
+            type: 'scatter',
+            name: 'Snow Water Equivalent (in)',
+            yaxis: 'y2',
+            opacity: 0.5,
+            mode: 'lines+markers',
+            marker:
+            {
+                color: "rgb(105,105,105)"
+                
+            }
+        }
+        var data = [trace1,trace2]
+
+        var layout = 
+        {
+            title: 
+            {
+                text: "Lake Mead Historical Reservoir Level 1936-2021"
+            },
+            xaxis:
+            {
+                title: "Month Year"
+            },
+            yaxis:
+            {
+                title: "Elevation (ft)"
+            },
+            yaxis2:
+            {
+                title: "Snow Water Equivalent (in)",
+                overlaying: 'y',
+                side: 'right'
+            }
+
+        }
+ 
+        
+        Plotly.newPlot('myDiv', data, layout);
+
+    </script>
+</body>
+</html>
