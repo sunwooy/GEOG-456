@@ -1712,7 +1712,7 @@
         {
             title: 
             {
-                text: "Lake Mead Historical Reservoir Level 1936-2021"
+                text: "Lake Mead Historical Reservoir Level and Willow Park Snow Water Equivalent: 1990-2022"
             },
             xaxis:
             {
@@ -1733,6 +1733,25 @@
  
         
         Plotly.newPlot('myDiv', data, layout);
+        var myDiv = document.getElementById('myDiv');
+
+var d3 = Plotly.d3,
+    N = 40,
+    u = d3.range(N),
+    t = d3.range(N).map( d3.random.normal() ),
+    data = [ { x:u, y:t } ];
+    layout = { title:'Click-drag to zoom' };
+
+Plotly.plot(myDiv, data, layout, {showSendToCloud: true});
+
+myDiv.on('plotly_relayout',
+    function(eventdata){  
+        alert( 'ZOOM!' + '\n\n' +
+            'Event data:' + '\n' + 
+             JSON.stringify(eventdata) + '\n\n' +
+            'x-axis start:' + eventdata['xaxis.range[0]'] + '\n' +
+            'x-axis end:' + eventdata['xaxis.range[1]'] );
+    });
 
     </script>
 </body>
