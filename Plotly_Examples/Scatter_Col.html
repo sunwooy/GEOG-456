@@ -135,6 +135,32 @@
         var data = [trace1]
         Plotly.newPlot('myDiv', data, layout);
 
+        var myDiv = document.getElementById('myDiv');
+
+var d3 = Plotly.d3,
+    N = 40,
+    u = d3.range(N),
+    t = d3.range(N).map( d3.random.normal() ),
+    data = [ { x:u, y:t } ];
+    layout = { title:'Click-drag to zoom' };
+
+Plotly.plot(myDiv, data, layout, {showSendToCloud: true});
+
+myDiv.on('plotly_relayout',
+    function(eventdata){  
+        alert( 'ZOOM!' + '\n\n' +
+            'Event data:' + '\n' + 
+             JSON.stringify(eventdata) + '\n\n' +
+            'x-axis start:' + eventdata['xaxis.range[0]'] + '\n' +
+            'x-axis end:' + eventdata['xaxis.range[1]'] );
+    });
+
     </script>
+    <h4> The benefit of using a scattergram is it's very easy to see the general trends of ups and downs of elevation depending on month.
+        This is especially true because I built in a zoom in function so that you can zoom into specific years.
+        You can also easily see (generally) where water levels are dropping down to a historic level (annual scale). Another benefit
+         is that the y-axis doesn't have to start at 0 (unlike a bar chart), allowing you to really see
+        the patterns in the upper y-axis. Finally, the outliers become very clear to see. One main limitation of scattergrams is that I can't prove any 
+    statistical signifiance: when elevation starts dropping in 2000s, is this a significant change? </h4>
 </body>
 </html>

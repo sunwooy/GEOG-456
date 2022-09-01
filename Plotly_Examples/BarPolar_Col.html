@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scatter</title>
+    <title>BarPolar</title>
 </head>
 <style>
     #myDiv{
@@ -38,11 +38,11 @@
         
         
         
-        var y = Col.map(e => e.JUL)
-        var x = Col.map(e => e.Year)
+        //var y = Col.map(e => e.JUL)
+        //var x = Col.map(e => e.Year)
 
         // var x = []
-        // var y = []
+         var y = []
         
         // for (let i = 0; i < Col.length; i++)
         // {
@@ -60,18 +60,18 @@
         //     x.push("Dec " + Col[i].Year )
             
             
-        //     y.push(Col[i].JAN)
-        //     y.push(Col[i].FEB)
-        //     y.push(Col[i].MAR)
-        //     y.push(Col[i].APR)
-        //     y.push(Col[i].MAY)
-        //     y.push(Col[i].JUN)
-        //     y.push(Col[i].JUL)
-        //     y.push(Col[i].AUG)
-        //     y.push(Col[i].SEP)
-        //     y.push(Col[i].OCT)
-        //     y.push(Col[i].NOV)
-        //     y.push(Col[i].DEC)
+            y.push(Col[85].JAN)
+            y.push(Col[85].FEB)
+            y.push(Col[85].MAR)
+            y.push(Col[85].APR)
+            y.push(Col[85].MAY)
+            y.push(Col[85].JUN)
+            y.push(Col[85].JUL)
+            y.push(Col[85].AUG)
+            y.push(Col[85].SEP)
+            y.push(Col[85].OCT)
+            y.push(Col[85].NOV)
+            y.push(Col[85].DEC)
 
         // }
 
@@ -108,7 +108,7 @@
         {
             title: 
             {
-                text: "Lake Mead Historical Reservoir Level: July 1936-2021"
+                text: "Lake Mead Historical Reservoir Level: 2021 Jan-Dec"
             },
           
 
@@ -117,5 +117,16 @@
         Plotly.newPlot('myDiv', data, layout);
 
     </script>
+    <h4> Using a polar bar chart makes it easy to see categories if you use color.
+        Here, I plotted water depth (r) for each month of 2021 to see general ups and downs of the 
+        Colorodo river. We can see that the first 5 month (Jan - May) is generally wet. However,
+        as summer comes along and winter, the river dries up. A limitation to the polar bar chart
+        is that you can't label inside of the polar bar chart. The reader would have a hard time 
+        knowing what each slice of the circle mean. Also, a bar polar chart is great at showing
+        big differencecs in number using the size of their bar charts. 
+        However, in my dataset, water level change gradually, meaning I couldn't capture the bar size 
+        as much. 
+    
+    </h4>
 </body>
 </html>
