@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+    integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+    crossorigin=""/>
+     <script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
+    integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ=="
+    crossorigin=""></script>
+
+    <script src="BlackMartin.js"></script>
+</head>
+<style>
+    #map { 
+        width: 100%;
+        height: 500px;
+         }
+</style>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([-14, 145], 5);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // function myStyle() {
+        //     return{
+            
+        //         "color": getColor(feature.properties.date),
+        //         "weight": .25,
+        //         "opacity": 0.65
+        //     }
+
+        // };
+
+        var myStyle = {
+    "color": "#ff7900",
+    "weight": 5,
+    "opacity": 0.65
+};
+        var LeafIcon = L.Icon.extend({
+            options: {
+                // shadowUrl: 'leaf-shadow.png',
+                iconSize:     [38, 95],
+                shadowSize:   [50, 64],
+                iconAnchor:   [22, 94],
+                //shadowAnchor: [4, 62],
+                popupAnchor:  [-3, -76]
+            }
+        })
+
+        var greenIcon = new LeafIcon({iconUrl: '7-02.jpg'})
+
+
+        function getColor(d)
+        {
+            for(let i = 0; i < 87; i++ ) 
+            {
+                if (d == myResult.features[i].properties.date)
+                {
+                    return ("#ff7800")
+                }
+            }
+            return("#FF0000")
+
+        }
+        for(let i = 0; i < 87; i++ ) 
+            {
+                L.marker([myResult.features[i].geometry.coordinates[1],myResult.features[i].geometry.coordinates[0] ], {icon: greenIcon}).addTo(map)
+            }
+        
+        for(let i = 87; i < 121; i++ ) 
+        {
+            L.geoJSON(myResult.features[i], {style: myStyle}).addTo(map);
+        }
+        
+
+        
+    </script>
+    
+</body>
+</html>
