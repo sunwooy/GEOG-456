@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG</title>
+</head>
+<style>
+    img {
+        position: absolute;
+
+    }
+    .off{
+        visibility: hidden;
+    }
+    .on{
+        visibility: visible; 
+    }
+    /* #y2004 {
+        visibility: visible;
+    }
+    #y2019 {
+        visibility: visible; 
+    } */
+
+</style>
+<body>
+    
+    <div id = "container">
+        <img id = "y2004" class = "off" src="clt2004.png">
+        <img id = "y2010" src = "clt_2010.png">
+        <img id = "y2019" class = "on" src = "clt_2019.png">
+    </div>
+
+    <script>
+        var myContainer = document.getElementById("container")
+
+        //var hidden = "hidden"
+        myContainer.addEventListener("click", myFunction)
+
+
+
+        function myFunction() {
+            var theOn = document.getElementsByClassName("on")[0]
+            var theOff = document.getElementsByClassName("off")[0]
+            theOn.className = "off"
+            theOff.className = "on"
+  
+            
+
+            //This is for when you're calling for id. The above is better example as it calls
+            //for a class. 
+            // document.getElementById('y2019').style.visibility = hidden
+            // if (document.getElementById("y2019").style.visibility == "hidden")
+            // {
+            //     document.getElementById("y2019").style.visibility = "visible"
+            // }
+            // else{
+            //     document.getElementById("y2019").style.visibility = "hidden"
+            // }
+
+
+
+        }
+    </script>
+</body>
+</html>

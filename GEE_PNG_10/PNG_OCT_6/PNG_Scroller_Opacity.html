@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>
+    Charlotte is one of the fastest growing city in the United States.
+    When we compare 2004 and 2019, we see that there is a lot more development. 
+    For example, the neighborhood in the lower left expands. In the lower right, 
+    we see forests that are cut down to start a bunch of new suburban neighborhoods. We also see
+    more bigger buildings which are warehouses, and suppliers (door, automation). 
+    Charlotte is a growing city not only for homes but also industry
+</p>
+<style>
+    img{
+        position: absolute;
+    }
+</style>
+<body>
+    <input type = "range" min = "0" max = "1" value = "1" step = ".001" orient = "vertical" oninput = "myFunction(this.value)" />
+    
+    <img id = "p2004" src = "./clt2004.png" alt = "">
+    <img id = "p2019" src = "./clt_2019.png" alt = "">
+    
+    
+    
+    
+    <script>
+        var p2019 = document.getElementById('p2019')
+        var p2004 = document.getElementById("p2004")
+
+        function myFunction(value){
+            p2019.style.opacity = value
+        }
+    </script>
+
+
+    
+
+</body>
+
+
+
+</html>

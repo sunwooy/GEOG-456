@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p>
+    The two year composites show that there is development of housing and industry in the Pineville
+    area of Charlotte. This three year composites show a more refined timescale of development. 
+    Simply from the two year composite, I assumed that developement of homes occur after industries
+    flow in because new homes are needed for new workers. At least in this snapshot it seems 
+    as though houses came first before industries. This doesn't necessary mean new homes bring industry
+    because this is a small portion of Charlotte. Industry might have developed in other areas of Charlotte
+    not captured in the photo and the flux of neighborhood development captured is the result.
+</p>
+<style>
+    img{
+        position: absolute; 
+        height: 400px; 
+    }
+    button{
+        position: absolute;
+        top:500px
+    }
+</style>
+<body>
+    <img id="clt2004" src = "./clt2004.png">
+    <img id="clt2010" src = "./clt_2010.png">
+    <img id="clt2019" src = "./clt_2019.png">
+    <button style = "left:10px" onclick="myFunction('clt2004')">CLT 2004</button>
+    <button style = "left: 100px" onclick="myFunction('clt2010')">CLT 2010</button>
+    <button style = "left: 200px" onclick="myFunction('clt2019')">CLT 2019</button>
+</body>
+
+<script>
+    
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for (var i = 0; i< imgs.length; i++){
+        imgs[i].style.visibility = 'hidden'
+        }
+        var theImage = document.getElementById(id)
+        theImage.style.visibility = 'visible'
+
+    }
+</script>
+</html>
