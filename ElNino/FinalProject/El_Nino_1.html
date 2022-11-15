@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intraanual El Niño</title>
+</head>
+
+
+<style>
+    
+    image{
+        position: relative; 
+        height: 1000px; 
+    }
+ 
+    </style>
+<body>
+    <h1 id = "para">El Niño</h1>
+    <style>
+        #para{
+           text-align: center;
+        }
+    </style>
+    <h2>El Niño and Seasonal Variation</h2>
+    <p>Heat anomalies is normal in the ocean but the intensity of temperature anomaly
+        in an El Niño month compared to the same months in other years can be a visual
+    indicator of El Niño.  </p>
+    <p> El Niño also causes change in weather patterns around the world. Examine how 
+        El Niño affects precipitation pattern in South America. </p>
+
+    <h2>Pacific El Niño Temperature Anomaly and South America Precipitation Anomaly from 2003 - 2021</h2>
+
+
+    
+    <div class="slidecontainer">
+    <input id="valR" type="range" min="1" max="12" value="0" step="1" oninput="showVal(this.value)
+    " onchange="showVal(this.value)" />
+    </div>
+    <span id="range" style = "position: absolute">1</span>
+    <img id="Legend" src = "LEGEND.jpg" style = "position: absolute; left:160px; height:80px;">
+    <img id="PrecipitationLegend" src = "PrecipitationLegend.jpg" style = "position: absolute; left:660px; height:80px;">
+    <img id="img1" style = "position: absolute; left:150px; top:380px; height: 2500px ">
+    <img id="img2" style = "position: absolute; left:700px; top:380px; height: 2500px">
+    <h2 id = "2003" style = "position:absolute; left: 520px; top:420px;">2003</h2>
+    <h2 id = "2004" style = "position:absolute; left: 520px; top:550px;">2004</h2>
+    <h2 id = "2005" style = "position:absolute; left: 520px; top:680px;">2005</h2>
+    <h2 id = "2006" style = "position:absolute; left: 520px; top:810px;">2006</h2>
+    <h2 id = "2007" style = "position:absolute; left: 520px; top:940px;">2007</h2>
+    <h2 id = "2008" style = "position:absolute; left: 520px; top:1070px;">2008</h2>
+    <h2 id = "2009" style = "position:absolute; left: 520px; top:1200px;">2009</h2>
+    <h2 id = "2010" style = "position:absolute; left: 520px; top:1330px;">2010</h2>
+    <h2 id = "2011" style = "position:absolute; left: 520px; top:1460px;">2011</h2>
+    <h2 id = "2012" style = "position:absolute; left: 520px; top:1590px;">2012</h2>
+    <h2 id = "2013" style = "position:absolute; left: 520px; top:1720px;">2013</h2>
+    <h2 id = "2014" style = "position:absolute; left: 520px; top:1860px;">2014</h2>
+    <h2 id = "2015" style = "position:absolute; left: 520px; top:1990px;">2015</h2>
+    <h2 id = "2016" style = "position:absolute; left: 520px; top:2120px;">2016</h2>
+    <h2 id = "2017" style = "position:absolute; left: 520px; top:2250px;">2017</h2>
+    <h2 id = "2018" style = "position:absolute; left: 520px; top:2380px;">2018</h2>
+    <h2 id = "2019" style = "position:absolute; left: 520px; top:2510px;">2019</h2>
+    <h2 id = "2020" style = "position:absolute; left: 520px; top:2640px;">2020</h2>
+    <h2 id = "2021" style = "position:absolute; left: 520px; top:2779px;">2021</h2>
+    
+
+<script>
+    var lists = ["", "January", "Feburary", "March", "April", "May", "June", "July", "August",
+"September", "October", "November", "December"]
+    var val = document.getElementById("valR").value;
+        document.getElementById("range").innerHTML=lists[val];
+        document.getElementById("img1").src =  val + ".png";
+        document.getElementById("img2").src =  val + "11" + ".png";
+
+        function showVal(newVal){
+          document.getElementById("range").innerHTML=lists[newVal];
+          document.getElementById("img1").src = newVal+ ".png";
+          document.getElementById("img2").src =  newVal + "11" + ".png";
+        }
+</script>
+</body>
+
+</html>

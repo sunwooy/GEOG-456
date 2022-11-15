@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interannual El Niño</title>
+</head>
+
+<body>
+<main>
+    <h1 id = "para">El Niño</h1>
+    <style>
+        #para{
+           text-align: center;
+        }
+    </style>
+<section>
+    <style>
+    
+        #Temp2004_2005{
+            position: absolute; 
+            height: 400px; 
+        }
+        
+        #Temp2009_2010{
+            position: absolute; 
+            height: 400px; 
+        }
+        #Temp2014_2016{
+            position: absolute; 
+            height: 400px; 
+        }
+        #Temp2018_2019{
+            position: absolute; 
+            height: 400px; 
+        }
+        #But_Temp2004_2005{
+            position: absolute;
+            top:570px
+        }
+        #But_Temp2009_2010{
+            position: absolute;
+            top:570px
+        }
+        #But_Temp2014_2016{
+            position: absolute;
+            top:570px
+        }
+        #But_Temp2018_2019{
+            position: absolute;
+            top:570px
+        }
+        </style>
+    
+    <h2>El Niño Events in the 2000s</h2>
+    <p>NOAA has recognized 5 El Niño events in the 2000s: 2002-2003, 2004-2005, 2009-2010,
+        2014-2016, and 2018-2019. </p>
+ 
+
+
+    <img id="Temp2004_2005" src = "EDITED_2004_2005.gif">
+    <img id="Temp2009_2010" src = "./EDITED_2009-2010.gif">
+    <img id="Temp2014_2016" src = "./EDITED_2014-2016.gif">
+    <img id="Temp2018_2019" src = "./EDITED_2018-2019.gif">
+    <button id="But_Temp2004_2005"style = "left:10px" onclick="myFunction('Temp2004_2005')">April 2004 - May 2005</button>
+    <button id="But_Temp2009_2010"style = "left: 170px" onclick="myFunction('Temp2009_2010')">April 2009 - June 2010</button>
+    <button id="But_Temp2014_2016"style = "left: 335px" onclick="myFunction('Temp2014_2016')">September 2014 - June 2016</button>
+    <button id="But_Temp2018_2019"style = "left: 535px" onclick="myFunction('Temp2018_2019')">June 2018 - September 2019</button>
+</section>
+
+    
+</main>
+
+    
+</body>
+
+
+
+
+
+
+<script>
+    
+    function myFunction(id){
+        var imgs = document.getElementsByTagName('img')
+        for (var i = 0; i< imgs.length; i++){
+        imgs[i].style.visibility = 'hidden'
+        }
+        var theImage = document.getElementById(id)
+        theImage.style.visibility = 'visible'
+
+    }
+</script>
+
+
+
+</html>
